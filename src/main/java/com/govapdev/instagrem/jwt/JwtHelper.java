@@ -45,6 +45,7 @@ public class JwtHelper {
         return JWT.create()
                 .withIssuer(issuer)
                 .withSubject(user.getId())
+                .withClaim("username",user.getUsername())
                 .withIssuedAt(new Date())
                 .withExpiresAt(new Date(new Date().getTime() + accessTokenExpirationMs))
                 .sign(accessTokenAlgorithm);
